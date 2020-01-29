@@ -33,11 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    validate: {
-      maxFood: () => {
-        console.log(this)
-      }
-    },
     hooks: {
       beforeCreate: (menu, options) => {
         if (menu.menu_type === 'food') {

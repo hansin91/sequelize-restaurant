@@ -30,11 +30,19 @@ class RestaurantController {
   static searchRestaurant(req, res) {
     const { search_by, keyword } = req.body
     const restaurant_id = +req.params.id
-    let condition = {}
-    condition[search_by] = {
-      [Op.iLike]: `%${keyword}%`
+    let condition = ''
+    if (search_by === 'name' || search_by === 'menu_type') {
+      condition = {
+        [search_by]: {
+          [Op.iLike]: `%${keyword}%`
+        }
+      }
+    } else {
+      condition = {
+        [search_by]: keyword
+      }
     }
-    console.log(condition)
+
     Promise.all([
       Restaurant.findOne({
         where: {
@@ -47,9 +55,7 @@ class RestaurantController {
             {
               restaurant_id
             },
-            {
-              where: condition
-            }
+            condition
           ]
         },
         order: [
