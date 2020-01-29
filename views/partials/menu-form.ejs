@@ -1,0 +1,32 @@
+<% if (type === 'add') { %>
+<form method="POST" action="/menus">
+  <% } else { %>
+  <form method="POST" action="/menus/<%= input.id %>/edit">
+    <% } %>
+    <div>
+      <label>Name</label>
+      <input type="text" name="name" value="<%= input.name %>">
+    </div>
+    <div>
+      <label>Menu type</label>
+      <input type="text" name="menu_type" value="<%= input.menu_type %>">
+    </div>
+    <div>
+      <label>Rating</label>
+      <input type="number" name="rating" value="<%= input.rating %>">
+    </div>
+    <div>
+      <label>Price</label>
+      <input type="number" name="price" value="<%= input.price %>">
+    </div>
+    <div>
+      <label>Restaurant</label>
+      <select name="restaurant_id">
+        <% restaurants.forEach((res) => { %>
+        <option <%= selected= res.id === input.restaurant_id ? 'selected':''  %> value="<%= res.id %>"><%= res.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <input type="submit" value="Submit">
+  </form>

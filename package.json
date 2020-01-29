@@ -1,0 +1,26 @@
+{
+  "name": "restaurantku",
+  "version": "1.0.0",
+  "description": "## Challenge 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beta-fox-mcc-02/restaurantku.git"
+  },
+  "keywords": [],
+  "author": "Hansin Susatya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beta-fox-mcc-02/restaurantku/issues"
+  },
+  "homepage": "https://github.com/beta-fox-mcc-02/restaurantku#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "pg": "^7.17.1",
+    "sequelize": "^5.21.3"
+  }
+}

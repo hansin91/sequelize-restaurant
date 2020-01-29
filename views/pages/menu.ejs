@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Menu</title>
+</head>
+
+<body>
+  <table border="0">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Menu Type</th>
+      <th>Rating</th>
+      <th>Price</th>
+      <th>Restaurant Id</th>
+      <th>Action</th>
+    </tr>
+    <% menus.forEach((menu) => { %>
+    <tr>
+      <td><%= menu.id %></td>
+      <td><%= menu.name %></td>
+      <td><%= menu.menu_type %></td>
+      <td><%= menu.rating %></td>
+      <td><%= convertCurrency(menu.price) %></td>
+      <td><%= menu.Restaurant.name %></td>
+      <td>
+        <a href="/menus/<%= menu.id %>/edit">Edit</a>
+        <a href="/menus/<%= menu.id %>/delete">Delete</a>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+  <% if (error) { %>
+  <p><%= error %></p>
+  <% } else { %>
+  <p></p>
+  <% } %>
+
+  <%- include('../partials/menu-form') %>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Restaurants</title>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+    <% restaurants.forEach((res) => { %>
+    <tr>
+      <td><%= res.id %></td>
+      <td><%= res.name %></td>
+      <td><%= res.address %></td>
+      <td>
+        <a href="/restaurants/<%= res.id %>/view_menu">View menu</a>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+
+</html>
